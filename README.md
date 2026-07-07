@@ -79,7 +79,7 @@ For the _why_ behind every decision here — the coordinate system, the face-ind
 
 ## 🙋 About
 
-Envisioned and built by **Khursheed Alam Khan** — as a personal project to learn Three.js, GSAP, and Next.js by building something I actually wanted to exist. Still a side project, still rough in places, and I'd genuinely love feedback if you're into front-end 3D, animation, or you're a fellow cuber.
+My personal project to learn Three.js, GSAP, and Next.js by building something I actually wanted to exist. Still rough in places but a fun side project. 
 
 ## 📄 License
 
