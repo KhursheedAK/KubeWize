@@ -10,7 +10,7 @@
 [![GSAP](https://img.shields.io/badge/GSAP-animation-88CE02?logo=greensock&logoColor=white)](https://gsap.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-[Live Demo](#) · [Demo Video](#) · [Architecture Deep-Dive](./ARCHITECTURE.md)
+[Live Demo](https://kube-wize.vercel.app/) · [Demo Video](#) · [Architecture Deep-Dive](./ARCHITECTURE.md)
 
 </div>
 
