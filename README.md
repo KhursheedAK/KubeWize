@@ -18,7 +18,7 @@
 
 ## What is this?
 
-I've kept a physical Rubik's Cube on my desk for years — solving it is my go-to five-minute reset. This project started as a personal dream: what if that cube lived in the browser too, not as a flat puzzle grid, but as an actual 3D cube you grab and turn with your mouse or finger — and as a hands-on way to properly learn **Three.js** and **GSAP** on top of **Next.js**.
+I've kept a physical Rubik's Cube on my desk for years — solving it is my go-to five-minute reset. This project started as a personal dream: what if that cube lived in the browser too, not as a flat puzzle grid, but as an actual 3D cube you grab and turn with your mouse or finger — and as a hands-on way to explore **Three.js** and **GSAP** on top of **Next.js**.
 
 No backend, no database. Everything — the cube's state, scrambling, and even solving — runs entirely client-side in the browser.
 
