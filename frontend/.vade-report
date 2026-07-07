@@ -1,0 +1,40 @@
+## Vercel Web Analytics Installation
+
+Successfully installed and configured Vercel Web Analytics for the KubeWize project following the latest official documentation.
+
+### Changes Made
+
+**Modified Files:**
+1. `app/layout.tsx` - Added Analytics component to root layout
+   - Imported `Analytics` from `@vercel/analytics/next`
+   - Added `<Analytics />` component inside the `<body>` tag after children
+   - Maintained existing structure and formatting
+
+2. `package.json` - Added @vercel/analytics dependency
+   - Installed `@vercel/analytics` version ^2.0.1
+
+3. `package-lock.json` - Updated with new dependency tree
+
+### Implementation Details
+
+The project uses Next.js 14 with App Router architecture, so I followed the App Router-specific instructions:
+- Analytics component was added to the root layout file (`app/layout.tsx`)
+- Component was placed at the end of the `<body>` tag, after the children, following best practices
+- Import statement uses the framework-specific path: `@vercel/analytics/next`
+
+### Verification Completed
+
+✅ Build successful - `npm run build` completed without errors
+✅ No linting issues - `npm run lint` passed with no warnings or errors
+✅ All dependencies installed correctly
+✅ Lock files updated appropriately
+
+### Next Steps for User
+
+To enable Web Analytics in production:
+1. Deploy this code to Vercel
+2. Navigate to your Vercel dashboard's Analytics section
+3. Click the "Enable" button to activate Web Analytics
+4. Analytics will be automatically collected once enabled in the dashboard
+
+The Analytics component will start tracking page views and Web Vitals once the project is deployed and the feature is enabled in the Vercel dashboard.
