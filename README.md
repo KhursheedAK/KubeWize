@@ -79,7 +79,7 @@ For the _why_ behind every decision here — the coordinate system, the face-ind
 
 ## 🙋 About
 
-My personal project to learn Three.js, GSAP, and Next.js by building something I actually wanted to exist. Still rough in places but a fun side project. 
+My personal project to explore Three.js, GSAP, and Next.js by building something I actually wanted to exist. Still rough in places but a fun side project. 
 
 ## 📄 License
 
