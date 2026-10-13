@@ -16,6 +16,8 @@ interface CubeState {
   isSolved: boolean;
   // Increments on reset/scramble so RubiksCube knows to restore cubie positions
   resetVersion: number;
+  // True while a scramble is animating: moves play fast and aren't counted
+  isScrambling: boolean;
 
   // Queue a move for animation (called by buttons/keyboard)
   enqueueMove: (move: MoveNotation) => void;
@@ -28,6 +30,8 @@ interface CubeState {
   applyMoveSequence: (moves: MoveNotation[]) => void;
   resetToSolved: () => void;
   loadScramble: (stickers: FaceColor[]) => void;
+  // Animate a scramble from the solved state by queueing its moves
+  startScramble: (moves: MoveNotation[]) => void;
 }
 
 export const useCubeStore = create<CubeState>((set, get) => ({
@@ -37,6 +41,7 @@ export const useCubeStore = create<CubeState>((set, get) => ({
   isAnimating: false,
   isSolved: true,
   resetVersion: 0,
+  isScrambling: false,
 
   enqueueMove: (move) => {
     set((s) => ({
@@ -66,9 +71,10 @@ export const useCubeStore = create<CubeState>((set, get) => ({
     const nextQueue = s.moveQueue.slice(1);
     set({
       stickers: nextStickers,
-      moveHistory: [...s.moveHistory, move],
+      moveHistory: s.isScrambling ? [] : [...s.moveHistory, move],
       moveQueue: nextQueue,
       isAnimating: nextQueue.length > 0,
+      isScrambling: s.isScrambling && nextQueue.length > 0,
       isSolved: isSolved(nextStickers),
     });
   },
@@ -90,6 +96,7 @@ export const useCubeStore = create<CubeState>((set, get) => ({
       moveQueue: [],
       isAnimating: false,
       isSolved: true,
+      isScrambling: false,
       resetVersion: s.resetVersion + 1,
     }));
   },
@@ -101,6 +108,20 @@ export const useCubeStore = create<CubeState>((set, get) => ({
       moveQueue: [],
       isAnimating: false,
       isSolved: isSolved(stickers),
+      isScrambling: false,
+      resetVersion: s.resetVersion + 1,
+    }));
+  },
+
+  startScramble: (moves) => {
+    if (moves.length === 0) return;
+    set((s) => ({
+      stickers: [...SOLVED_STATE],
+      moveHistory: [],
+      moveQueue: [...moves],
+      isAnimating: true,
+      isSolved: false,
+      isScrambling: true,
       resetVersion: s.resetVersion + 1,
     }));
   },

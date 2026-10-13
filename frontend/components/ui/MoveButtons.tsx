@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useCubeStore } from '@/store/cubeStore';
 import { useSolverStore } from '@/store/solverStore';
 import { solveCube } from '@/lib/solverClient';
-import { applySequence, MoveNotation, SOLVED_STATE } from '@/lib/cubeLogic';
+import { MoveNotation } from '@/lib/cubeLogic';
 
 interface MovePair {
   face: string;
@@ -79,7 +79,7 @@ export default function MoveButtons() {
   const stickers = useCubeStore((s) => s.stickers);
   const moveQueue = useCubeStore((s) => s.moveQueue);
   const resetToSolved = useCubeStore((s) => s.resetToSolved);
-  const loadScramble = useCubeStore((s) => s.loadScramble);
+  const startScramble = useCubeStore((s) => s.startScramble);
   const [lastScramble, setLastScramble] = useState('');
 
   const isSolving = useSolverStore((s) => s.isSolving);
@@ -110,7 +110,7 @@ export default function MoveButtons() {
   const scramble = () => {
     if (busy) return;
     const moves = makeScramble();
-    loadScramble(applySequence(SOLVED_STATE, moves));
+    startScramble(moves);
     setLastScramble(moves.join(' '));
   };
 

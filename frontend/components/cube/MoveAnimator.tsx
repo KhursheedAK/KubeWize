@@ -44,11 +44,12 @@ export default function MoveAnimator({
       if (mesh) tempGroup.attach(mesh);
     }
 
+    const scrambling = useCubeStore.getState().isScrambling;
     const target = { value: 0 };
     tweenRef.current = gsap.to(target, {
       value: angle,
-      duration: 0.3,
-      ease: 'power2.inOut',
+      duration: scrambling ? 0.12 : 0.3,
+      ease: scrambling ? 'power1.inOut' : 'power2.inOut',
       onUpdate() {
         tempGroup.rotation[axis] = target.value;
       },
